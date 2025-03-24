@@ -1,0 +1,811 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31/"
+     xml:base="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#hasCause -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#hasCause">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#isConsequenceOf"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#Effect"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#Cause"/>
+        <rdfs:comment>Links an effect to the cause that produced it.
+Effect → Cause 
+E.g., GoAround hasCause Fog</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#hasDependencyRelation -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#hasDependencyRelation">
+        <rdfs:comment>Logical/structural relationship (from cause or dependency to effect)
+Any concept → Related concept
+Logical dependency without time/action</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#hasEffect -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#hasEffect">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#Cause"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#Effect"/>
+        <rdfs:comment>Links a cause to its resulting effect. 
+Cause → Effect
+E.g., SensorFailure hasEffect MissedApproach</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#hasTransformationRelation -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#hasTransformationRelation">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:comment>Describes dynamic state changes triggered by events or decisions.
+InputState → OutputState
+Describes actual change in condition/state</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#influencesDecision -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#influencesDecision">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#Cause"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#LandingDecision"/>
+        <rdfs:comment>Models how causes influence landing decisions.
+Cause → LandingDecision
+E.g., ManualOverride influencesDecision EmergencyLanding</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#isConsequenceOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#isConsequenceOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:comment>Effect → Cause
+Inverse of hasCause useful for backward reasoning.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#monitorsCondition -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#monitorsCondition">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#SensorData"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#RunwayCondition"/>
+        <rdfs:comment>Defines which sensor monitors which runway condition.
+Sensor → RunwayCondition
+E.g., InfraredCamera monitorsCondition WetRunway</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#requiresSensorData -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#requiresSensorData">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#ApproachScenario"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#SensorData"/>
+        <rdfs:comment>Links a scenario to required sensor data types.
+ApproachScenario → SensorData
+E.g., PrecisionApproach requiresSensorData LiDARData</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#triggersScenario -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#triggersScenario">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#Cause"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#LandingScenario"/>
+        <rdfs:comment>Cause → LandingScenario
+E.g., LowVisibility triggersScenario GoAround</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#airspeedIndicated -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#airspeedIndicated">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#AircraftState"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#altitudeAboveRunway -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#altitudeAboveRunway">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#AircraftState"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#crosswindSpeed -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#crosswindSpeed">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#RunwayCondition"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#verticalSpeed -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#verticalSpeed">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#AircraftState"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#AIModelPerformance -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#AIModelPerformance">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#Dependency"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#AIOverrideDecision -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#AIOverrideDecision">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#LandingDecision"/>
+        <rdfs:comment>Aligned with ICAO&apos;s emerging guidance on automated systems
+Includes human oversight requirements suggested in ICAO automation policies</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#ATCInstruction -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#ATCInstruction">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#OperationalFactor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#AircraftCondition -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#AircraftCondition">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#OperationalFactor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#AircraftState -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#AircraftState">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#Dependency"/>
+        <rdfs:comment>Speed, altitude, landing gear status, approach stability.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#Altitude -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#Altitude">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#AircraftState"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#ApproachDecision -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#ApproachDecision">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#Effect"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#ApproachScenario -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#ApproachScenario">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#Effect"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#CNNPerformance -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#CNNPerformance">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#AIModelPerformance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#CameraBasedProcessing -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#CameraBasedProcessing">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#CameraData"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#CameraData -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#CameraData">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#SensorData"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#Cause -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#Cause">
+        <rdfs:comment>A cause represents an initial condition or triggering event that leads to a chain reaction within the system. It can be an environmental, operational, or human factor that influences the approach and landing phase.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#CirclingApproach -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#CirclingApproach">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#ApproachScenario"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#ContinueLanding -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#ContinueLanding">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#LandingDecision"/>
+        <rdfs:comment>Includes decision factors from Doc 9365 (All Weather Operations)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#Dependency -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#Dependency">
+        <rdfs:comment>A dependency represents an intermediate factor that connects causes to their resulting effects. Dependencies are often external conditions, sensor readings, or system states that influence how a cause propagates to an effect.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#DopplerAnalysis -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#DopplerAnalysis">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#RADARbasedAnalysis"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#DopplerRADAR -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#DopplerRADAR">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#LiDARData"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#DryRunway -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#DryRunway">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#RunwayCondition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#EdgeDetection -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#EdgeDetection">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#CameraBasedProcessing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#Effect -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#Effect">
+        <rdfs:comment>An effect is the final outcome or impact resulting from a cause and its dependencies. Effects influence landing decisions, affecting whether the aircraft continues, goes around, or lands under difficult conditions.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#EmergencyLanding -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#EmergencyLanding">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#LandingScenario"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#EngineAnomaly -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#EngineAnomaly">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#AircraftCondition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#EnvironmentalFactor -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#EnvironmentalFactor">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#Cause"/>
+        <rdfs:comment>Adverse weather conditions</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#FeatureMatching -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#FeatureMatching">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#CameraBasedProcessing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#Fog -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#Fog">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#WheatherCondition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#GoAround -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#GoAround">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#LandingScenario"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#GoAroundCommand -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#GoAroundCommand">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#ATCInstruction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#HardLanding -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#HardLanding">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#LandingDecision"/>
+        <rdfs:comment>Includes structural inspection criteria from Annex 8 (Airworthiness)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#HeavyRain -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#HeavyRain">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#WheatherCondition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#HighWind -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#HighWind">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#WheatherCondition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#HoldPosition -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#HoldPosition">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#ATCInstruction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#IcyRunway -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#IcyRunway">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#RunwayCondition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#ImageProcessing -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#ImageProcessing">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#CameraBasedProcessing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#IncorrectFlare -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#IncorrectFlare">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#PilotDecision"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#InfraredCamera -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#InfraredCamera">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#CameraData"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#LandingDecision -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#LandingDecision">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#Effect"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#LandingGearStatus -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#LandingGearStatus">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#AircraftState"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#LandingScenario -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#LandingScenario">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#Effect"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#LateReaction -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#LateReaction">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#PilotDecision"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#LiDARData -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#LiDARData">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#SensorData"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#LiDARbasedTechnique -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#LiDARbasedTechnique">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#LiDARData"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#LowVisibility -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#LowVisibility">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#WheatherCondition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#MLDecisionConfidence -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#MLDecisionConfidence">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#AIModelPerformance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#ManualOverride -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#ManualOverride">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#PilotDecision"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#MissedApproach -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#MissedApproach">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#LandingDecision"/>
+        <rdfs:comment>Structured according to ICAO Doc 8168 missed approach procedures
+Includes mandatory execution criteria from PANS-OPS</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#MonocularCamera -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#MonocularCamera">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#CameraData"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#MotionTracking -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#MotionTracking">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#RADARbasedAnalysis"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#NewLandingRunway -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#NewLandingRunway">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#ATCInstruction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#NormalLanding -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#NormalLanding">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#LandingScenario"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#ObjectDetection -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#ObjectDetection">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#CameraBasedProcessing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#ObstacleDetection -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#ObstacleDetection">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#LiDARbasedTechnique"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#OperationalFactor -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#OperationalFactor">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#Cause"/>
+        <rdfs:comment>Aircraft system failures</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#OpticalFlow -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#OpticalFlow">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#CameraBasedProcessing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#PilotDecision -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#PilotDecision">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#Cause"/>
+        <rdfs:comment>Human-induced errors</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#PointCloudProcessing -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#PointCloudProcessing">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#LiDARbasedTechnique"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#PrecisionApproach -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#PrecisionApproach">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#ApproachScenario"/>
+        <rdfs:comment>See ICAO&apos;Approach Includes decision heights and visibility requirements as specified in Annex 6</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#RADARData -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#RADARData">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#SensorData"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#RADARbasedAnalysis -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#RADARbasedAnalysis">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#RADARData"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#RunwayCondition -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#RunwayCondition">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#Dependency"/>
+        <rdfs:comment>Wet, dry, icy, or obstructed runway that affects landing safety.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#SLAM -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#SLAM">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#LiDARbasedTechnique"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#SafeLanding -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#SafeLanding">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#LandingDecision"/>
+        <rdfs:comment>Includes runway exit parameters from Annex 14 specifications</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#SemanticSegmentation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#SemanticSegmentation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#CameraBasedProcessing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#SensorData -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#SensorData">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#Dependency"/>
+        <rdfs:comment>Camera, LiDAR, and RADAR data used to assess landing conditions.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#SensorFailure -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#SensorFailure">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#AircraftCondition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#SolidStateLiDAR -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#SolidStateLiDAR">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#LiDARData"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#Speed -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#Speed">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#AircraftState"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#SpinningLiDAR -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#SpinningLiDAR">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#LiDARData"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#StereoCamera -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#StereoCamera">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#CameraData"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#SyntheticApertureRADAR -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#SyntheticApertureRADAR">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#RADARData"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#SystemMalfunction -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#SystemMalfunction">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#AircraftCondition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#TerrainMapping -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#TerrainMapping">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#LiDARbasedTechnique"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#UnstableApproach -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#UnstableApproach">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#ApproachScenario"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#WetRunway -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#WetRunway">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#RunwayCondition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#WheatherCondition -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#WheatherCondition">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/1unixiao/ontologies/2025/2/untitled-ontology-31#EnvironmentalFactor"/>
+    </owl:Class>
+    
+    <!-- Individual: RainEvent1 -->
+    <rdf:Description rdf:about="http://www.semanticweb.org/your-ontology#RainEvent1">
+    <rdf:type rdf:resource="http://www.semanticweb.org/your-ontology#HeavyRain"/>
+    </rdf:Description>
+
+    <!-- Individual: VisibilityDrop1 -->
+    <rdf:Description rdf:about="http://www.semanticweb.org/your-ontology#VisibilityDrop1">
+    <rdf:type rdf:resource="http://www.semanticweb.org/your-ontology#LowVisibility"/>
+    </rdf:Description>
+    
+    <rdf:Description rdf:about="http://www.semanticweb.org/lunixiao/ontologies/2025/2/untitled-ontology-31#LowVisibilityEvent1">
+    <rdf:type rdf:resource="http://www.semanticweb.org/lunixiao/ontologies/2025/2/untitled-ontology-31#LowVisibility"/>
+    </rdf:Description>
+
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
